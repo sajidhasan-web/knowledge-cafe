@@ -1,9 +1,22 @@
-const Bookmark = () => {
+import { useState } from "react";
+
+const Bookmark = ({bookmarks, addMinutes}) => {
+
+
+
     return (
         <div>
-            <h3 className="text-3xl font-medium">Bookmark</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit ipsum aliquid hic minus ipsam ex tenetur pariatur voluptas neque temporibus obcaecati, dolor deserunt commodi nostrum culpa molestias necessitatibus? Ipsa, sed?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed in, voluptatum enim odio minus similique voluptates repellendus consectetur repudiandae consequatur dicta, repellat minima doloremque eveniet cumque est, quas nobis officiis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error eaque dolore labore, vitae, sequi eius velit porro molestias sunt enim, dolor blanditiis provident impedit eum. Unde officiis totam labore eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod officiis temporibus vero beatae reiciendis nostrum minus. Asperiores ad voluptas veniam voluptatum quia itaque recusandae, voluptate, ipsa maiores possimus consequatur quisquam!</p>
-            
+           <div className="bg-[#6047EC1A] p-6 text-2xl font-bold text-blue-500 border-2 rounded-lg border-blue-800 mb-4">
+              <h3>Spent time on read : <span>{addMinutes}</span>min</h3>
+           </div>
+                <div className="bg-[#1111110D] py-6 px-4 md:h-[500px] rounded-lg overflow-y-scroll">
+                    <h3 className="text-3xl font-medium">Bookmark Blogs: {bookmarks.length}</h3>
+                
+                {
+                    bookmarks.map((bookmark, idx) => <p className="p-4 bg-white text-xl font-semibold mt-3 rounded-lg" key={idx}>{bookmark.title}</p>)
+                }
+                    
+                </div>
         </div>
     );
 };
